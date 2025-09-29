@@ -25,7 +25,6 @@ class ApplicationController < Sinatra::Base
     # Affiche un message pour l'utilisateur
     puts "Ceci est le contenu du hash params : #{params}"
     puts "Gossip créé par #{params['gossip_author']} - Contenu : #{params['gossip_content']}"
-    puts "Sauvegardé dans la base de données (CSV)."
     redirect '/' # Redirige vers la page d'accueil
   end
 
