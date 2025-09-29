@@ -1,0 +1,28 @@
+<div class="py-5 text-center">
+  <h1 class="display-4">The Gossip Project with Sinatra</h1>
+  <a href="/gossips/new/" class="btn btn-primary my-3">Créé un nouveau potin</a>
+  <p class="lead">Les derniers potins enregistrés :</p>
+</div>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <!-- <% %> sert à exécuter du Ruby. Par exemple pour faire un each do -->
+  <% gossips.each_with_index do |gossip, index| %>
+    <div class="col">
+      <!-- lien vers le gossip n°<%= index + 1 %> -->
+      <a href="/gossips/<%= index + 1 %>" class="text-decoration-none">
+        <div class="card h-100">
+          <div class="card-header">
+            Potin n°<%= index + 1 %>
+          </div>
+          <div class="card-body">
+            <!-- <%= %> va afficher une string Ruby qui est entre ces balises (équivalent d'un puts) -->
+            <p class="card-text"><%= gossip.content %></p>
+          </div>
+          <div class="card-footer">
+            <small class="text-body-secondary">Auteur : <%= gossip.author %></small>
+          </div>
+        </div>
+      </a>
+    </div>
+  <% end %>
+</div>

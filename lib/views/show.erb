@@ -1,0 +1,60 @@
+<div class="py-5 text-center">
+  <h1 class="display-5">Page du Potin n°<%= id %></h1>
+</div>
+
+<div class="row justify-content-center">
+  <div class="col-md-8 col-lg-6">
+    <div class="card">
+      <div class="card-header">
+        <!-- <%= %> va afficher une string Ruby qui est entre ces balises (équivalent d'un puts) -->
+        Auteur : <%= gossip.author %>
+      </div>
+      <div class="card-body">
+        <p class="card-text"><%= gossip.content %></p>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center mt-4">
+      <!-- lien retour vers la racine (page d'accueil) -->
+      <a href="/gossips/<%= id %>/edit" class="btn btn-outline-primary me-2">Éditer le potin</a>
+      <form action="/gossips/<%= id %>/delete" method="POST" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce potin ?');" class="me-2">
+        <button type="submit" class="btn btn-danger">Supprimer</button>
+      </form>
+      <a href="/" class="btn btn-secondary">Retour à l'accueil</a>
+    </div>
+
+    <hr class="my-5">
+
+    <!-- Section des commentaires -->
+    <div class="comments-section">
+      <h3 class="mb-4">Commentaires</h3>
+
+      <!-- Formulaire pour ajouter un commentaire -->
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Ajouter un commentaire</h5>
+          <form action="/gossips/<%= id %>/comments" method="POST">
+            <div class="mb-3">
+              <label for="comment_author" class="form-label">Votre nom</label>
+              <input type="text" class="form-control" name="comment_author" id="comment_author" placeholder="Anonyme" required>
+            </div>
+            <div class="mb-3">
+              <label for="comment_content" class="form-label">Votre commentaire</label>
+              <textarea class="form-control" name="comment_content" id="comment_content" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Envoyer</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Liste des commentaires existants -->
+      <% comments.each do |comment| %>
+      <!-- <% %> sert à exécuter du Ruby. Par exemple pour faire un each do -->
+        <div class="alert alert-secondary">
+          <p class="mb-0"><%= comment.content %></p>
+          <footer class="blockquote-footer mt-1 mb-0">Par <%= comment.author %></footer>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>

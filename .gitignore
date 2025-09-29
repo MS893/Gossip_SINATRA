@@ -1,0 +1,6 @@
+.env
+.vscode
+.rubocop.yml
+.rspec
+Gemfile
+Gemfile.lock

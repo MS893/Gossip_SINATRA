@@ -1,0 +1,22 @@
+<div class="py-5 text-center">
+  <h2 class="display-5">Modifie ce potin n°<%= id %> qui ne te convient pas...</h2>
+</div>
+
+<div class="row justify-content-center">
+  <div class="col-md-8 col-lg-6">
+    <form action='/gossips/<%= id %>/edit' method='POST'>
+      <div class="mb-3">
+        <label for="gossip_author" class="form-label">Auteur du potin</label>
+        <input type="text" class="form-control" id="gossip_author" name="gossip_author" value="<%= gossip.author %>" required>
+      </div>
+      <div class="mb-3">
+        <label for="gossip_content" class="form-label">Potin à modifier</label>
+        <textarea class="form-control" id="gossip_content" name="gossip_content" rows="4" required><%= gossip.content %></textarea>
+      </div>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+        <a href="/" class="btn btn-secondary me-md-2">Annuler</a>
+        <button type="submit" class="btn btn-primary">Modifier le potin</button>
+      </div>
+    </form>
+  </div>
+</div>

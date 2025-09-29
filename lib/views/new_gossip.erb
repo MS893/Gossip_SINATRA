@@ -1,0 +1,23 @@
+<div class="py-5 text-center">
+  <h1 class="display-5">Crée un nouveau potin !</h1>
+  <p class="lead">Renseigne le formulaire ci-dessous. Il sera ajouté à la liste des potins sur la page d'accueil.</p>
+</div>
+
+<div class="row justify-content-center">
+  <div class="col-md-8 col-lg-6">
+    <form action='/gossips/new/' method='POST'>
+      <div class="mb-3">
+        <label for="gossip_author" class="form-label">Ton nom</label>
+        <input type="text" class="form-control" id="gossip_author" name="gossip_author" placeholder="Anonyme" required>
+      </div>
+      <div class="mb-3">
+        <label for="gossip_content" class="form-label">Ton potin</label>
+        <textarea class="form-control" id="gossip_content" name="gossip_content" rows="4" placeholder="Il parait que..." required></textarea>
+      </div>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+        <a href="/" class="btn btn-secondary me-md-2">Annuler</a>
+        <button type="submit" class="btn btn-primary">Créer le potin</button>
+      </div>
+    </form>
+  </div>
+</div>
