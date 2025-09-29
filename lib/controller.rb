@@ -1,9 +1,8 @@
 # gérer : créer un gossip, voir la liste complète des gossips ou supprimer un gossip
 require 'gossip'
-require 'view'
-require 'sinatra/flash'
+require 'sinatra/flash' # pour afficher un message après une action
 require 'comment'
-require 'pony'
+require 'pony'          # pour envoyer un email
 
 class ApplicationController < Sinatra::Base
 
@@ -64,7 +63,7 @@ class ApplicationController < Sinatra::Base
     comment_author = params['comment_author']
     comment_content = params['comment_content']
     Comment.new(gossip_id, comment_author, comment_content).save
-    # Envoi de l'e-mail
+    # Envoi d'un email pour informer d'un nouveau commentaire
     Pony.mail(
       :to => 'ms893@free.fr',
       :subject => "Nouveau commentaire de #{comment_author}",
