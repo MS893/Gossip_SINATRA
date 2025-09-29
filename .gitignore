@@ -2,5 +2,6 @@
 .vscode
 .rubocop.yml
 .rspec
+/spec
 Gemfile
 Gemfile.lock
