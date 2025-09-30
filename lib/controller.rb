@@ -9,10 +9,12 @@ class ApplicationController < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
 
+
   get '/' do
     erb :index, locals: {gossips: Gossip.all}
     # locals permet d'envoyer au fichier ERB des variables que l'on utilisera. Ici on veut lui envoyer l'array obtenu par Gossip.all
   end
+  
   
   get '/gossips/new/' do
     erb :new_gossip
@@ -26,6 +28,7 @@ class ApplicationController < Sinatra::Base
     puts "Gossip créé par #{params['gossip_author']} - Contenu : #{params['gossip_content']}"
     redirect '/' # Redirige vers la page d'accueil
   end
+
 
   get '/gossips/:id' do
     # Récupère le potin correspondant à l'ID fourni dans l'URL

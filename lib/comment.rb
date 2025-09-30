@@ -20,7 +20,6 @@ class Comment
     comments = []
     # Crée le fichier s'il n'existe pas pour éviter les erreurs de lecture
     File.new('db/comments.csv', 'w').close unless File.exist?('db/comments.csv')
-    
     CSV.foreach('db/comments.csv') do |row|
       comments << Comment.new(row[0], row[1], row[2], row[3]) if row[0].to_i == gossip_id.to_i
     end

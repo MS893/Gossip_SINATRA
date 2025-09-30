@@ -5,9 +5,12 @@
 </div>
 
 <div class="row row-cols-1 row-cols-md-3 g-4">
+
   <!-- <% %> sert à exécuter du Ruby. Par exemple pour faire un each do -->
   <% gossips.each_with_index do |gossip, index| %>
+
     <div class="col">
+
       <!-- lien vers le gossip n°<%= index + 1 %> -->
       <a href="/gossips/<%= index + 1 %>" class="text-decoration-none">
         <div class="card h-100">
@@ -23,6 +26,9 @@
           </div>
         </div>
       </a>
+      
     </div>
+
   <% end %>
+
 </div>
