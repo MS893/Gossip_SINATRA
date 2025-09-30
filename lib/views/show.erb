@@ -51,7 +51,7 @@
       <!-- <% %> sert à exécuter du Ruby. Par exemple pour faire un each do -->
         <div class="alert alert-secondary">
           <p class="mb-0"><%= comment.content %></p>
-          <footer class="blockquote-footer mt-1 mb-0">Par <%= comment.author %></footer>
+          <footer class="blockquote-footer mt-1 mb-0">Par <%= comment.author %>, le <%= comment.creation_date %></footer>
         </div>
       <% end %>
 
