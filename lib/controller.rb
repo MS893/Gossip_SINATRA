@@ -68,7 +68,7 @@ class ApplicationController < Sinatra::Base
     Comment.new(gossip_id, comment_author, comment_content).save
     # Envoi d'un email pour informer d'un nouveau commentaire
     Pony.mail(
-      :to => 'ms893@free.fr',
+      :to => ENV['FREE_EMAIL_USER'],
       :subject => "Nouveau commentaire de #{comment_author}",
       :body => "Un nouveau commentaire a été posté sur le potin n°#{gossip_id}.\n\nAuteur: #{comment_author}\nCommentaire: #{comment_content}"
     )
